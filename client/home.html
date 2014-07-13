@@ -1,3 +1,26 @@
 <template name='home'>
   {{> signupLogin}}
+  {{#if currentUser}}
+    {{> userList}}
+  {{/if}}
+</template>
+
+<template name='userList'>
+  <div class='column'>
+    <h1>Users</h1>
+    <p> Choose another player to start a game with: </p>
+    <ul>
+        {{#each users}}
+          {{> userItem}}
+        {{/each}}
+    </ul> 
+  </div>  
+</template>
+
+<template name ='userItem'>
+  <li>
+    <button> 
+      {{username}} 
+    </button>
+  </li>
 </template>

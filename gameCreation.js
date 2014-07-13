@@ -1,11 +1,10 @@
 GameFactory = {};
 
-GameFactory.createGame = function (playersIds) {
-  var deck = createDeck();
-    players = createPlayers(playersId);
+GameFactory.createGame = function (playerIds) {
+  var deck = createDeck(),
+    players = createPlayers(playerIds);
 
   GameFactory.dealPlayers(players, deck);
-
   var table = dealTable(deck);
 
   return {
@@ -16,10 +15,9 @@ GameFactory.createGame = function (playersIds) {
     inProgress: true,
     started: new Date()
   };
-
 };
 
-GameFactory.dealPlayers(players, deck) {
+GameFactory.dealPlayers = function (players, deck) {
   for (var i = 0; i < 3; i++) {
     Object.keys(players).forEach(function (id) {
       players[id].hand.push(deck.shift());
@@ -29,12 +27,12 @@ GameFactory.dealPlayers(players, deck) {
 
 function dealTable(deck) {
   var c = deck.shift.bind(deck);
-  return[c(), c(), c(), c()];
+  return [c(), c(), c(), c()];
 }
 
 function createPlayers(ids) {
-
   var o = {};
+
   ids.forEach(function (id) {
     o[id] = {
       hand: [],
@@ -49,10 +47,13 @@ function createPlayers(ids) {
     };
 
   });
+
+  return o;
 }
 
-function () {
-  var suits = ['Cups', 'Coins', Swords, Clubs]
+function createDeck () {
+  var suits = ['Cups', 'Coins', 'Swords', 'Clubs'],
+      cards = [];
 
   suits.forEach(function (suit) {
     for (var i = 1; i <= 10; i++) {
