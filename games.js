@@ -40,7 +40,7 @@ Meteor.methods({
   createGame: function (otherPlayerID) {
     var game = GameFactory.createGame([Meteor.userID(), otherPlayerId]);
     Games.insert(game);
-  }
+  },
   takeTurn: function (gameId, id, card) {
     var game = Games.findOne(gameId),
     hand = game.players[id].hand;
