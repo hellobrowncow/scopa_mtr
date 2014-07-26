@@ -62,7 +62,7 @@ Meteor.methods({
       if (game.deck.length > 0) {
         GameFactory.dealPlayers(game.deck, game.players);
       } else {
-          //score game
+          scoreGame(game);
       }
     }
     Games.update(gameId, game);
