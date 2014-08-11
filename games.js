@@ -23,7 +23,7 @@ game = {
 
 if (Meteor.isServer) {
   Meteor.publish('games', function () {
-    return Games.find ({currentTurn:this.userID});
+    return Games.find ({currentTurn: this.userID});
   });
 
   Meteor.publish('users', function () {
@@ -38,7 +38,7 @@ if (Meteor.isClient) {
 
 Meteor.methods({
   createGame: function (otherPlayerID) {
-    var game = GameFactory.createGame([Meteor.userID(), otherPlayerId]);
+    var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
     Games.insert(game);
   },
   takeTurn: function (gameId, id, card) {
@@ -60,7 +60,7 @@ Meteor.methods({
 
     if (allHandsEmpty(game.players)) {
       if (game.deck.length > 0) {
-        GameFactory.dealPlayers(game.deck, game.players);
+        GameFactory.dealPlayers(game.players, game.deck);
       } else {
           scoreGame(game);
       }

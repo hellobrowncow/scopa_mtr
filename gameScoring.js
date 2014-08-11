@@ -72,10 +72,10 @@ var primeraPoints = {
 function getPrimera(set){
   var cards = [suit('Coins', set), suit('Cups', set), suit("Clubs", set), suit('Swords', set)];
 
-  return cards.map(function (suite) {
+  return cards.map(function (suit) {
     return suit.map( function (card) {
       return primeraPoints[card.value];
-    }).sort(function (a,b) { return b - a; })[0];
+    }).sort(function (a, b) { return b - a; })[0];
   }).reduce(function (a, b) {
     return a + b;
   }); 
