@@ -19,7 +19,7 @@ Template.login.events({
   } 
 });
 
-Template.login.events({
+Template.logout.events({
   'click button': function (evt, template) {
     evt.preventDefault();
     Meteor.logout();
