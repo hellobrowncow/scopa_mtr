@@ -2,6 +2,9 @@
   {{> signupLogin}}
   {{#if currentUser}}
     {{> status}}
+    {{#unless inProgress}}
+      {{> score}}
+    {{/unless}}
     {{#if inProgress}}
       {{> table}}
       {{> hand}}
@@ -19,6 +22,10 @@
     {{/if}}
   {{/if}}
 </h2>
+</template>
+
+<template name='score'>
+  <h1> Game Over!!! {{ message}}</h1>
 </template>
 
 <template name='table'>
