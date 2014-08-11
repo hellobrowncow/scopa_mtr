@@ -37,7 +37,7 @@ if (Meteor.isClient) {
 }
 
 Meteor.methods({
-  createGame: function (otherPlayerID) {
+  createGame: function (otherPlayerId) {
     var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
     Games.insert(game);
   },
