@@ -32,7 +32,7 @@ scoreGame = function (game) {
     }
 
     if(hasSetteBello(pile)) {
-      game.players[id].score.SetteBello = 1;
+      game.players[id].score.setteBello = 1;
     }
 
     var primera = getPrimera(pile);
@@ -78,8 +78,8 @@ var primeraPoints = {
  '9': 0
 };
 
-function getPrimera(set){
-  var cards = [suit('Coins', set), suit('Cups', set), suit("Clubs", set), suit('Swords', set)];
+function getPrimera(set) {
+  var cards = [suit('Coins', set), suit('Cups', set), suit('Clubs', set), suit('Swords', set)];
 
   return cards.map(function (suit) {
     return suit.map( function (card) {
