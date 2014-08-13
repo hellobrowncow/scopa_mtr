@@ -24,6 +24,13 @@ scoreGame = function (game) {
       mostCards = false;
     }
 
+    var coinCount = suit('Coins', pile).length;
+    if (coinCount > mostCoins[1]) {
+      mostCoins = [id, coinCount];
+    } else if (coinCount === mostCoins[1]) {
+      mostCoins = false;
+    }
+
     if(hasSetteBello(pile)) {
       game.players[id].score.SetteBello = 1;
     }
