@@ -6,7 +6,7 @@ scoreGame = function (game) {
   //scopa
 
   game.players[game.lastScorer].pile.push.apply(game.players[game.lastScorer].pile, game.table);
-  game.table = []  ;
+  game.table = [];
   game.inProgress = false;
   game.finished = new Date();
 
@@ -15,7 +15,9 @@ scoreGame = function (game) {
       highestPrimera = ['x', -1];
 
   Object.keys(game.players).forEach(function (id) {
-    var cardCount = game.players[id].pile.length;
+    var pile = game.players[id].pile
+
+    var cardCount = pile.length;
     if (cardCount > mostCards[1]) {
       mostCards = [id, cardCount];
     } else if (cardCount === mostCards[1]) {
