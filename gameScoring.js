@@ -78,7 +78,7 @@ var primeraPoints = {
  '9': 0
 };
 
-function getPrimera(set)  {
+function getPrimera(set) {
   var cards = [suit('Coins', set), suit('Cups', set), suit('Clubs', set), suit('Swords', set)];
 
   return cards.map(function (suit) {
