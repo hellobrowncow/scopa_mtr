@@ -27,7 +27,7 @@ GameFactory.dealPlayers = function (players, deck) {
 
 function dealTable(deck) {
   var c = deck.shift.bind(deck);
-  return [c(), c(), c(), c()];
+  return [c()];
 }
 
 function createPlayers(ids) {

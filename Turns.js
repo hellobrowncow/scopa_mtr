@@ -12,9 +12,9 @@ function matchCard(a, b) {
 }
 
 Turns.getMatch = function (card, set) {
-  var matches = Turns.findMatches(card, set);
+  var matches = Turns.findMatches(card, set); //see below
   if (matches.length > 0 ) {
-    return Turns.bestMatch(matches);
+    return Turns.bestMatch(matches); //see below
   }
   return null;
 };
@@ -76,7 +76,7 @@ Turns.removeCard = function (card,set) {
 
 function sumCards(set) {
   return set.reduce(function (a, b) {
-    return a + b. value;
+    return a + b.value;
   }, 0);
 } 
 
