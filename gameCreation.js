@@ -27,7 +27,7 @@ GameFactory.dealPlayers = function (players, deck) {
 
 function dealTable(deck) {
   var c = deck.shift.bind(deck);
-  return [c()];
+  return [c(), c(), c(), c(), c(), c(), c() ];
 }
 
 function createPlayers(ids) {
@@ -38,11 +38,7 @@ function createPlayers(ids) {
       hand: [],
       pile: [],
       score: {
-        mostCoins: 0,
-        mostCards: 0,
-        setteBello: 0,
-        primera: 0,
-        scopa: 0
+
       }
     };
 
