@@ -26,6 +26,7 @@ Meteor.methods({
 
     if (game.currentTurn[0] !== id || !Turns.inHand(hand,card)) return;
 
+
     var match = Turns.getMatch(card, game.table);
 
     if (match) {
@@ -34,6 +35,8 @@ Meteor.methods({
       game.table.push(card);
     }
 
+    //Removes from table, Adds to pile, scores scopa
+    //Regulates player turn 
     game.players[id].hand = Turns.removeCard(card, hand);
     game.currentTurn.unshift(game.currentTurn.pop());
 
@@ -48,6 +51,7 @@ Meteor.methods({
   } 
 });
 
+//Returns true if all list values pass
 function allHandsEmpty(players) {
   return _.every(players, function (player) {
     return player.hand.length === 0; 
