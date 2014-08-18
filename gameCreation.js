@@ -25,10 +25,10 @@ GameFactory.dealPlayers = function (players, deck) {
   }
 };
 
-// function dealTable(deck) {
-//   var c = deck.shift.bind(deck);
-//   return [];
-// }
+function dealTable(deck) {
+  var c = deck.shift.bind(deck);
+  return [];
+}
 
 function createPlayers(ids) {
   var o = {};

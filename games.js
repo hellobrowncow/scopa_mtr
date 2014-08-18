@@ -26,8 +26,7 @@ Meteor.methods({
 
     if (game.currentTurn[0] !== id || !Turns.inHand(hand,card)) return;
 
-
-    var match = Turns.getMatch(card, game.table);
+    var match = Turns.getMatch(card, game.players[game.currentTurn[1]].hand);
 
     if (match) {
       Turns.takeMatch(game, id, card, match);
