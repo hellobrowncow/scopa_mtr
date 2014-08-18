@@ -18,17 +18,17 @@ GameFactory.createGame = function (playerIds) {
 };
 
 GameFactory.dealPlayers = function (players, deck) {
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 7; i++) {
     Object.keys(players).forEach(function (id) {
       players[id].hand.push(deck.shift());
     });
   }
 };
 
-function dealTable(deck) {
-  var c = deck.shift.bind(deck);
-  return [c(), c(), c(), c(), c(), c(), c() ];
-}
+// function dealTable(deck) {
+//   var c = deck.shift.bind(deck);
+//   return [];
+// }
 
 function createPlayers(ids) {
   var o = {};
