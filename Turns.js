@@ -14,7 +14,12 @@ function matchCard(a, b) {
 Turns.getMatch = function (card, set) {
   var matches = Turns.findMatches(card, set); //see below
   if (matches.length > 0 ) {
-    return Turns.bestMatch(matches); //see below
+    // return Turns.bestMatch(matches); //see below
+   for (var i = 0; i < matches.length; i++) {
+    var match = matches[i];
+  }
+    console.log(match);
+    return match; //experimental
   }
   return null;
 };
@@ -27,32 +32,32 @@ Turns.findMatches = function (card, set) {
 
   if (matches.length > 0 ) return matches;
 
-  for (var i = 2; i <= set.length; i++) {
-    combinations(set, i, function (potentialMatch) {
-      if (sumCards(potentialMatch) === card.value) matches.push(potentialMatch.slice());
-    });
-  }
+  // for (var i = 2; i <= set.length; i++) {
+  //   combinations(set, i, function (potentialMatch) {
+  //     if (sumCards(potentialMatch) === card.value) matches.push(potentialMatch.slice());
+  //   });
+  // }
   return matches;
 };
 
-Turns.bestMatch = function (matches) {
-  var mostCoins = [0, null], 
-      mostCards = [0, null];
+// Turns.bestMatch = function (matches) {
+//   var mostCoins = [0, null], 
+//       mostCards = [0, null];
 
-  for (var i = 0; i < matches.length; i++) {
-    var match = matches[i];
+//   for (var i = 0; i < matches.length; i++) {
+//     var match = matches[i];
 
-    for (var j = 0; j < match.length; j++)
-      if (match[j].suit === 'Coins' && match[j].value === 7) return match;
+//     for (var j = 0; j < match.length; j++)
+//       if (match[j].suit === 'Coins' && match[j].value === 7) return match;
 
-    var coinCount = match.filter(function (card) { return card.suit === 'Coins'}).length;
+//     var coinCount = match.filter(function (card) { return card.suit === 'Coins'}).length;
 
-    if (coinCount > mostCoins[0]) mostCoins = [coinCount, match];
-    if (match.length > mostCards[0]) mostCards = [match.length, match];
-  }
+//     if (coinCount > mostCoins[0]) mostCoins = [coinCount, match];
+//     if (match.length > mostCards[0]) mostCards = [match.length, match];
+//   }
 
-  return (mostCards[0] > mostCoins[0]) ? mostCards[1] : mostCoins[1];
-};
+//   return (mostCards[0] > mostCoins[0]) ? mostCards[1] : mostCoins[1];
+// };
 
 Turns.takeMatch = function (game, id, card, match) {
   match.forEach(function (matchCard) {
@@ -80,19 +85,19 @@ function sumCards(set) {
   }, 0);
 } 
 
-function combinations(numArr, choose, callback) {
-  var n = numArr.length;
-  var c = [];
-  var inner = function(start, choose_) {
-    if (choose_ == 0) {
-      callback(c);
-    } else {
-      for (var i = start; i <= n - choose_; ++i) {
-        c.push(numArr[i]);
-        inner(i + 1, choose_ - 1);
-        c.pop();
-      }
-    }
-  } 
-  inner(0, choose); 
-} 
+// function combinations(numArr, choose, callback) {
+//   var n = numArr.length;
+//   var c = [];
+//   var inner = function(start, choose_) {
+//     if (choose_ == 0) {
+//       callback(c);
+//     } else {
+//       for (var i = start; i <= n - choose_; ++i) {
+//         c.push(numArr[i]);
+//         inner(i + 1, choose_ - 1);
+//         c.pop();
+//       }
+//     }
+//   } 
+//   inner(0, choose); 
+// } 
