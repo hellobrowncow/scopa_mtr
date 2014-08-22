@@ -20,6 +20,21 @@ Meteor.methods({
     var game = GameFactory.createGame([Meteor.userId(), otherPlayerId]);
     Games.insert(game);
   },
+
+  dealCard: function (gameId, id) {
+    var game = Games.findOne(gameId),
+    hand = game.players[id].hand;
+
+    if (game.currentTurn[0] !== id) return;
+
+    if (game.deck.length > 0) 
+      hand = hand.push(game.deck.shift());
+
+      game.currentTurn.unshift(game.currentTurn.pop());
+
+      Games.update(gameId, game);
+  },
+
   takeTurn: function (gameId, id, card) {
     var game = Games.findOne(gameId),
     hand = game.players[id].hand;
