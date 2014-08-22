@@ -1,9 +1,4 @@
 scoreGame = function (game) {
-  //most cards
-  //most coins
-  //seven of coins
-  //primera
-  //scopa
 
   game.players[game.lastScorer].pile.push.apply(game.players[game.lastScorer].pile, game.table);
   game.table = [];
