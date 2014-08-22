@@ -6,6 +6,7 @@
       {{> score}}
     {{/unless}}
     {{#if inProgress}}
+      {{> tableDeck}}
       {{> table}}
       {{> hand}}
     {{/if}}
@@ -42,6 +43,11 @@
     <tr><td>Total</td><td>{{player.score.total}}</td> <td>{{otherPlayer.score.total}}</td> </tr>
 
   </table>
+</template>
+
+<template name='tableDeck'>
+  <h2>Deck</h2>
+    <div class="card"></div>
 </template>
 
 <template name='table'>
