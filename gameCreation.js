@@ -7,7 +7,7 @@ GameFactory.createGame = function (playerIds) {
   GameFactory.dealPlayers(players, deck);
   var table = dealTable(deck);
 
-  var blank = []
+  var blank = ['Deal']
 
   return {
     blank: blank,
