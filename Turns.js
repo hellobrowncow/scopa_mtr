@@ -12,14 +12,14 @@ function matchCard(a, b) {
 }
 
 Turns.getMatch = function (card, set) {
-  var matches = Turns.findMatches(card, set); //see below
+  var matches = Turns.findMatches(card, set); 
   if (matches.length > 0 ) {
-    // return Turns.bestMatch(matches); //see below
+    // return Turns.bestMatch(matches); 
    for (var i = 0; i < matches.length; i++) {
     var match = matches[i];
   }
     console.log(match);
-    return match; //experimental
+    return match; 
   }
   return null;
 };
@@ -62,7 +62,7 @@ Turns.findMatches = function (card, set) {
 Turns.takeMatch = function (game, id, card, match) {
   match.forEach(function (matchCard) {
     game.players[id].pile.push(matchCard);
-    game.table = Turns.removeCard(matchCard, game.table);
+    game.players[game.currentTurn[1]].hand = Turns.removeCard(matchCard, game.players[game.currentTurn[1]].hand);
   }); 
 
   game.players[id].pile.push(card);
@@ -73,7 +73,7 @@ Turns.takeMatch = function (game, id, card, match) {
   }
 };
 
-Turns.removeCard = function (card,set) {
+Turns.removeCard = function (card, set) {
   return set.filter(function (setCard) {
     return !matchCard(card, setCard);
   });   
