@@ -44,14 +44,17 @@ Meteor.methods({
     var match = Turns.getMatch(card, game.players[game.currentTurn[1]].hand);
 
     if (match) {
-      Turns.takeMatch(game, id, card, match);
-    } else {
-      game.table.push(card);
-    }
+        Turns.takeMatch(game, id, card, match);
+      } else {
+        game.table.push(card);
+      }
 
-    //Removes from table, Adds to pile, scores scopa
-    //Regulates player turn 
-    game.players[id].hand = Turns.removeCard(card, hand);
+    var localmatch = Turns.getMatch(card, hand); //returns localmatches including card
+
+    if (localmatch) {
+        Turns.takelocalMatch(game, id, localmatch, hand);
+      }
+     
     game.currentTurn.unshift(game.currentTurn.pop());
 
     if (allHandsEmpty(game.players)) {

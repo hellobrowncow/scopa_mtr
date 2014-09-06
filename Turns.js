@@ -16,7 +16,7 @@ Turns.getMatch = function (card, set) {
   if (matches.length > 0 ) {
    for (var i = 0; i < matches.length; i++) {
     var match = matches;
-  }
+    }
     return match; 
   }
   return null;
@@ -47,6 +47,15 @@ Turns.takeMatch = function (game, id, card, match) {
   if (game.table.length === 0) {
     game.players[id].score.scopa++;
   }
+};
+
+Turns.takelocalMatch = function (game, id, localmatch, hand) {
+  localmatch.forEach(function (matchlocalcard) {
+    if (localmatch.length > 1 ) {
+      game.players[id].hand = Turns.removeCards(matchlocalcard, game.players[id].hand);
+      game.players[id].pile.push(matchlocalcard);
+    }
+  });
 };
 
 Turns.removeCard = function (card, set) {
