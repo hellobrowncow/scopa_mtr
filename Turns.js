@@ -50,8 +50,8 @@ Turns.takeMatch = function (game, id, card, match) {
 };
 
 Turns.takelocalMatch = function (game, id, localmatch, hand) {
-  localmatch.forEach(function (matchlocalcard) {
-    if (localmatch.length > 1 ) {
+  localmatch.forEach(function (matchlocalcard) { 
+    if (localmatch.length === 4 ) {  
       game.players[id].hand = Turns.removeCards(matchlocalcard, game.players[id].hand);
       game.players[id].pile.push(matchlocalcard);
     }

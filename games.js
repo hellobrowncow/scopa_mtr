@@ -27,8 +27,19 @@ Meteor.methods({
 
     if (game.currentTurn[0] !== id) return;
 
-    if (game.deck.length > 0) 
-      hand = hand.push(game.deck.shift());
+    if (game.deck.length > 0) {
+      card = game.deck.shift();
+      hand = hand.push(card);
+    }
+
+    var matches = [];
+    game.players[id].hand.forEach(function (localhandcard) {
+      if (localhandcard.value === card.value) matches.push([localhandcard]);
+    }); 
+
+    if (matches.length === 4) {
+      Turns.takelocalMatch(game, id, matches, game.players[id].hand);
+    }
 
       game.currentTurn.unshift(game.currentTurn.pop());
 
