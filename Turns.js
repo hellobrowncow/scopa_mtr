@@ -34,13 +34,12 @@ Turns.findMatches = function (card, set) {
 
 Turns.takeMatch = function (game, id, card, match) {
   match.forEach(function (matchCard) {
-    game.players[id].pile.push.apply(game.players[id].pile, matchCard);
+    game.players[id].hand.push.apply(game.players[id].hand, matchCard);
     
     if (match.length > 0 ) {
       game.players[game.currentTurn[1]].hand = Turns.removeCards(matchCard, game.players[game.currentTurn[1]].hand);
     }
 
-    game.players[id].pile.push(card);
     game.lastScorer = id; 
   }); 
 
