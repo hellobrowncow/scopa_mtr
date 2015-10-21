@@ -58,6 +58,7 @@ Meteor.methods({
         Turns.takeMatch(game, id, card, match);
       } else {
         game.table.push(card);
+        game.players[id].hand = Turns.removeCard(card, game.players[id].hand); 
       }
 
     var localmatch = Turns.getMatch(card, hand); //returns localmatches including card
