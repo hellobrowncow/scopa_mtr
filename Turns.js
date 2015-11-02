@@ -52,7 +52,7 @@ Turns.takelocalMatch = function (game, id, localmatch, hand) {
   localmatch.forEach(function (matchlocalcard) { 
     if (localmatch.length === 4 ) {  
       game.players[id].hand = Turns.removeCards(matchlocalcard, game.players[id].hand);
-      game.players[id].pile.push(matchlocalcard);
+      game.players[id].pile.push(matchlocalcard[0]);
     }
   });
 };
