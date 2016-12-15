@@ -69,20 +69,26 @@ li a:hover {
 
 #hand .card:hover {
   cursor: pointer;
-  -webkit-transform: rotate(10deg);
-  -moz-transform: rotate(10deg);
-  -ms-transform: rotate(10deg);
-  -o-transform: rotate(10deg);
-   transform: rotate(10deg);
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+   transform: rotate(20deg);
 }
 
 #tableDeck .card:hover {
   cursor: pointer;
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-   transform: rotate(-10deg);
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+   transform: rotate(-20deg);
+}
+
+#tableDeck .card span {
+  color: red; 
+  font-size: medium; 
+  font-weight: bold;
 }
 
 #table, #hand {
