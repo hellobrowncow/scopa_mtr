@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #ececec;
+  background: green;
 }
 
 #main {
@@ -62,14 +62,33 @@ li a:hover {
   bottom: 40px;
 }
 
-.Coins {color: gold;}
-.Cups {color: red;}
-.Swords {color: blue;}
-.Clubs {color: green;}
+.Spades {color: black;}  
+.Hearts {color: red;}     
+.Diamonds {color: red;}  
+.Clubs {color: black;}  
 
 #hand .card:hover {
   cursor: pointer;
-  transform: rotate(10deg);
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+   transform: rotate(20deg);
+}
+
+#tableDeck .card:hover {
+  cursor: pointer;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+   transform: rotate(-20deg);
+}
+
+#tableDeck span {
+  color: red; 
+  font-size: medium; 
+  font-weight: bold;
 }
 
 #table, #hand {

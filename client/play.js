@@ -5,3 +5,11 @@ Template.hand.events({
     }
   } 
 }); 
+
+Template.tableDeck.events({
+  'click .card': function (evt, template) {
+    if (template.data.yourTurn) {
+      Meteor.call('dealCard', template.data._id, Meteor.userId());
+    }
+  } 
+});

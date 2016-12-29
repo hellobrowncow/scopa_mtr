@@ -6,6 +6,7 @@
       {{> score}}
     {{/unless}}
     {{#if inProgress}}
+      {{> tableDeck}}
       {{> table}}
       {{> hand}}
     {{/if}}
@@ -34,14 +35,18 @@
       <th> {{otherPlayer.username}} </th>
     </tr>
 
-    <tr><td> Most Cards</td> <td> {{player.score.mostCards}}</td> <td> {{otherPlayer.score.mostCards}} </td></tr>
-    <tr><td>Most Coins</td><td>{{player.score.mostCoins}}</td> <td>{{otherPlayer.score.mostCoins}}</td></tr>
-    <tr><td>Sette Bello</td><td>{{player.score.setteBello}}</td> <td>{{otherPlayer.score.setteBello}}</td></tr>
-    <tr><td>Primera</td><td>{{player.score.primera}}</td> <td>{{otherPlayer.score.primera}}</td></tr>
-    <tr><td>Scopa</td><td>{{player.score.scopa}}</td> <td>{{otherPlayer.score.scopa}}</td></tr>
-    <tr><td>Total</td><td>{{player.score.total}}</td> <td>{{otherPlayer.score.total}}</td> </tr>
+    <tr><td>Matched Sets</td><td>{{player.score}}</td><td>{{otherPlayer.score}}</td></tr>
 
   </table>
+</template>
+
+<template name='tableDeck'>
+  <div id='tableDeck'>
+    <h2>Deck</h2>
+    <div class="card {{blank}}">
+      <div><span>{{blank}}</span></div>
+    </div>
+  </div>
 </template>
 
 <template name='table'>

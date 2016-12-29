@@ -7,7 +7,10 @@ GameFactory.createGame = function (playerIds) {
   GameFactory.dealPlayers(players, deck);
   var table = dealTable(deck);
 
+  var blank = ['Deal Card'];
+
   return {
+    blank: blank,
     deck: deck,
     players: players,
     table: table,
@@ -18,7 +21,7 @@ GameFactory.createGame = function (playerIds) {
 };
 
 GameFactory.dealPlayers = function (players, deck) {
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 7; i++) {
     Object.keys(players).forEach(function (id) {
       players[id].hand.push(deck.shift());
     });
@@ -27,7 +30,7 @@ GameFactory.dealPlayers = function (players, deck) {
 
 function dealTable(deck) {
   var c = deck.shift.bind(deck);
-  return [c(), c(), c(), c()];
+  return [];
 }
 
 function createPlayers(ids) {
@@ -37,13 +40,7 @@ function createPlayers(ids) {
     o[id] = {
       hand: [],
       pile: [],
-      score: {
-        mostCoins: 0,
-        mostCards: 0,
-        setteBello: 0,
-        primera: 0,
-        scopa: 0
-      }
+      score: 0
     };
 
   });
@@ -52,16 +49,16 @@ function createPlayers(ids) {
 }
 
 function createDeck () {
-  var suits = ['Cups', 'Coins', 'Swords', 'Clubs'],
+  var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'],
       cards = [];
 
   suits.forEach(function (suit) {
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= 13; i++) {
         var name = i;
         if (i === 1) name = 'A';
-        if (i === 8) name = 'N';
-        if (i === 9) name = 'Q';
-        if (i === 10) name = 'K';
+        if (i === 11) name = 'J';
+        if (i === 12) name = 'Q';
+        if (i === 13) name = 'K';
         cards.push({
           suit: suit,
           value: i,
