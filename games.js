@@ -30,26 +30,25 @@ Meteor.methods({
     if (game.deck.length > 0) {
       card = game.deck.shift();
       hand = hand.push(card);
+
+      var matches = [];
+      game.players[id].hand.forEach(function (localhandcard) {
+        if (localhandcard.value === card.value) matches.push([localhandcard]);
+      }); 
+
+      if (matches.length === 4) {
+        Turns.takelocalMatch(game, id, matches, game.players[id].hand);
+      }
+
+        game.currentTurn.unshift(game.currentTurn.pop());
     }
-
-    var matches = [];
-    game.players[id].hand.forEach(function (localhandcard) {
-      if (localhandcard.value === card.value) matches.push([localhandcard]);
-    }); 
-
-    if (matches.length === 4) {
-      Turns.takelocalMatch(game, id, matches, game.players[id].hand);
-    }
-
-      game.currentTurn.unshift(game.currentTurn.pop());
-
       Games.update(gameId, game);
   },
 
   takeTurn: function (gameId, id, card) {
     var game = Games.findOne(gameId),
     hand = game.players[id].hand;
-
+    
     if (game.currentTurn[0] !== id || !Turns.inHand(hand,card)) return;
 
     var match = Turns.getMatch(card, game.players[game.currentTurn[1]].hand);
@@ -57,8 +56,8 @@ Meteor.methods({
     if (match) {
         Turns.takeMatch(game, id, card, match);
       } else {
-        game.table.push(card);
-        game.players[id].hand = Turns.removeCard(card, game.players[id].hand); 
+        // game.table.push(card);
+        // game.players[id].hand = Turns.removeCard(card, game.players[id].hand); 
       }
 
     var localmatch = Turns.getMatch(card, hand); //returns localmatches including card

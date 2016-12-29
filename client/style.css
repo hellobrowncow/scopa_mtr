@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #ececec;
+  background: green;
 }
 
 #main {
@@ -85,7 +85,7 @@ li a:hover {
    transform: rotate(-20deg);
 }
 
-#tableDeck .card span {
+#tableDeck span {
   color: red; 
   font-size: medium; 
   font-weight: bold;

@@ -43,9 +43,8 @@ Turns.takeMatch = function (game, id, card, match) {
     game.lastScorer = id; 
   }); 
 
-  if (game.table.length === 0) {
-    game.players[id].score.scopa++;
-  }
+  // if (game.table.length === 0) {
+  // }
 };
 
 Turns.takelocalMatch = function (game, id, localmatch, hand) {
@@ -53,6 +52,7 @@ Turns.takelocalMatch = function (game, id, localmatch, hand) {
     if (localmatch.length === 4 ) {  
       game.players[id].hand = Turns.removeCards(matchlocalcard, game.players[id].hand);
       game.players[id].pile.push(matchlocalcard[0]);
+      game.players[id].score++;
     }
   });
 };

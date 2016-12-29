@@ -40,9 +40,7 @@ function createPlayers(ids) {
     o[id] = {
       hand: [],
       pile: [],
-      score: {
-
-      }
+      score: 0
     };
 
   });

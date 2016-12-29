@@ -1,4 +1,7 @@
-scopa_mtr
+Go Fish
 =========
 
-An introductory application card game using Meteor.js
+A take on the classic card game implemented with a Meteor.js web application
+
+Meteor 0.8.1.1
+

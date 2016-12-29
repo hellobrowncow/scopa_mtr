@@ -11,20 +11,15 @@ scoreGame = function (game) {
 
   });
 
-  var highest = ['x', -1];
+    if (game.players[game.currentTurn[0]].score == game.players[game.currentTurn[1]].score) {
 
-  Object.keys(game.players).forEach(function (id) {
-    var s = game.players[id].score;
+    } else if (game.players[game.currentTurn[0]].score > game.players[game.currentTurn[1]].score) {
+      game.winner = game.players[game.currentTurn[0]];
 
-    game.players[id].score.total = s;
- 
-    if ( game.players[id].score.total > highest [1]) {
-      highest = [id, game.players[id].score.total];
-    } else if (game.players[id].score.total === highest[1]) {
-      highest = false;
+    } else {
+      game.winner = game.players[game.currentTurn[1]];
     }
-  });
 
-  game.winner = highest ? highest[0] : "tie";
+  game.winner = false;
 };
 
